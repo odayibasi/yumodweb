@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Yumod</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- JQuery -->
+    <script src="js/jquery/jquery-3.1.1.js"></script>
+    <script src="js/jquery/underscore-min.js"></script>
+    <script src="js/jquery/mustache.min.js"></script>
+    <!--Page Scripts -->
+    <script src="js/core/model.js?v0023"></script>
+    <script src="js/pages/home.js?v0074"></script>
+    <link rel="stylesheet" type="text/css" href="css/yumod.css?v0034" />
+</head>
+<body>
+    <div class="main-context">
+        <h1>YUMOD HOME PAGE</h1>
+        <button onclick="logout();" type="button">Logout</button>
+        <div><span>medium account:</span>
+            <input type="text" id="txtMediumAccount">
+            <input type="checkbox" id="chckUpdateAccountName">Update Account Name</input>
+            <button id="btnCreateStoryLib" type="button">Create Story Library</button>
+        </div>
+        <div class=user-profile>
+            <div>Username:<span id="infoProfileName"><span></div>
+            <div>Email:<span id="infoProfileEmail"><span></div> 
+        </div>
+    </div>
+</body>
+
+</html>

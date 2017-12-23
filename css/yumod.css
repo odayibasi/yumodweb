@@ -1,0 +1,632 @@
+.template {
+    display: none;
+}
+
+.selected-folder {
+    background-color: #2196F3;
+    color: white;
+}
+
+.your-dashboard-link {
+    display: none;
+}
+
+
+/*!
+ * Start Bootstrap - SB Admin 2 v3.3.7+1 (http://startbootstrap.com/template-overviews/sb-admin-2)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body,
+html {
+    height: 100%;
+}
+
+#wrapper {
+    height: 100%;
+}
+
+#page-wrapper {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.wrapper-folder {
+    height: 50%;
+}
+
+.wrapper-folder .folder {
+    padding: 8px;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    margin-left: 3px;
+    margin-top: 4px;
+    margin-right: 8px;
+    -webkit-transition: all 1s ease-in-out;
+    border: 1px solid #EEE;
+    padding-left: 12px;
+    color: #999;
+}
+
+.wrapper-folder .folder_img {}
+
+.wrapper-folder .folder_title {
+    padding-left: 28px;
+    text-align: center;
+    font-size: 14px;
+    text-align: left;
+}
+
+.folder_img {
+    float: left;
+    margin-top: 4px;
+}
+
+.folder_img:hover {
+    cursor: move;
+}
+
+.wrapper-library {
+    height: calc(50% - 20px);
+    margin-top: 20px;
+    background-color: orange;
+    background-color: #F8F8F8;
+    border-top: 1px solid #EEE;
+}
+
+.wrapper-library ul,
+.wrapper-folder-list ul,
+.wrapper-library .container_table {
+    height: calc(100% - 46px);
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.wrapper-library table {
+    width: 100%;
+}
+
+.wrapper-library thead {}
+
+.wrapper-library .container_table table tr td {
+    border-bottom: 1px solid #EEE;
+    border-right: 1px solid #EEEE;
+    padding: 4px 14px;
+    background-color: #FCFCFC;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+.wrapper-library table thead tr th {
+    border-top: 1px solid #EEE;
+    border-bottom: 1px solid #EEE;
+    border-right: 1px solid #EEEE;
+    padding: 4px 14px;
+}
+
+.container_table button {
+    background-color: #333;
+    float: right;
+    font-size: 11px;
+    border-radius: 4px;
+    padding: 2px 8px;
+    height: 18px !important;
+}
+
+ul li button {
+    background-color: #EEE;
+    color: #AAA;
+    float: right;
+    font-size: 11px;
+    border-radius: 4px;
+    padding: 2px 8px;
+    height: 18px !important;
+}
+
+ul li:hover button:hover {
+    color: #FFF;
+    background-color: #F48C37;
+}
+
+ul li:hover button {
+    background-color: #000;
+}
+
+.wrapper-folder-title {
+    height: 100%;
+}
+
+.folder_list {
+    height: calc(100% - 47px);
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 12px;
+    box-sizing: border-box;
+    background-color: #FFF;
+    margin: 8px;
+    border-radius: 4px;
+    border: 1px solid #EEE;
+}
+
+.wrapper-folder-list ul {
+    margin: 0px;
+    padding: 15px;
+    background-color: #FFF;
+    margin: 8px;
+    border-radius: 4px;
+    border: 1px solid #EEE;
+    box-sizing: border-box;
+}
+
+.wrapper-folder-list ul li {
+    list-style: none;
+    background-color: #F8F8F8;
+    padding: 3px 6px 4px 12px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #EEE;
+}
+
+.wrapper-folder-list ul li a {
+    font-size: 13px;
+    color: #666;
+}
+
+.wrapper-folder-list ul li .number {
+    color: #000;
+    padding-right: 12px;
+    border-right: 1px solid #EEE;
+    text-align: center;
+    width: 24px;
+    display: block;
+    float: left;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 20px;
+    margin-right: 12px;
+}
+
+.wrapper-folder-list ul li .score {
+    display: block;
+    float: right;
+    color: #999;
+    margin-right: 30px;
+    padding-right: 30px;
+    border-right: 1px solid #eee;
+    font-size: 11px;
+    line-height: 20px;
+}
+
+.wrapper-folder-list ul li .date {
+    display: block;
+    float: right;
+    color: #999;
+    margin-right: 30px;
+    padding-right: 30px;
+    border-right: 1px solid #eee;
+    font-size: 11px;
+    line-height: 20px;
+}
+
+.wrapper-folder-list ul li button,
+.wrapper-library ul li button {
+    margin-top: 2px;
+}
+
+.wrapper-library ul {
+    margin: 0px;
+    padding: 20px;
+}
+
+.wrapper-library ul li {
+    list-style: none;
+    background-color: #FFF;
+    padding: 3px 6px 4px 12px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #EEE;
+}
+
+.wrapper-library ul li a {
+    font-size: 13px;
+    color: #666;
+}
+
+.wrapper-library ul li .number {
+    color: #000;
+    padding-right: 12px;
+    border-right: 1px solid #EEE;
+    text-align: center;
+    width: 24px;
+    display: block;
+    float: left;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 20px;
+    margin-right: 12px;
+}
+
+.wrapper-library ul li .score {
+    display: block;
+    float: right;
+    color: #999;
+    margin-right: 30px;
+    padding-right: 12px;
+    padding-left: 12px;
+    border-right: 1px solid #eee;
+    border-left: 1px solid #eee;
+    font-size: 11px;
+    line-height: 22px;
+    width: 73px;
+}
+
+.wrapper-library ul li .date {
+    display: block;
+    float: right;
+    color: #999;
+    margin-right: 30px;
+    padding-right: 30px;
+    border-right: 1px solid #eee;
+    font-size: 11px;
+    line-height: 20px;
+}
+
+.wrapper-library .filter_tool {
+    float: right;
+    width: 160px;
+    line-height: 25px;
+}
+
+.wrapper-library .filter_tool button {
+    line-height: 20px;
+}
+
+.wrapper-folder:after,
+.title_tool:after,
+.folder_list:after {
+    content: "";
+    display: block;
+    clear: both;
+    width: 100%;
+}
+
+.wrapper-folder-list {
+    border-left: 1px solid #EEE;
+    height: 100%;
+}
+
+.folder a {
+    float: right;
+    margin-left: 4px;
+}
+
+.folder.active {
+    color: #000;
+    background-color: #FAFAFA;
+    font-weight: bold;
+}
+
+.folder.active .fa-folder {
+    color: #000;
+}
+
+.folder.active .fa-folder:before,
+.wrapper-folder-list .fa-folder:before {
+    content: "\f07c";
+}
+
+.wrapper-folder-list .fa-folder:before {
+    font-size: 16px;
+    margin-left: 6px;
+    margin-right: 6px;
+    line-height: 22px;
+}
+
+.custom-search-form {
+    width: 240px;
+    float: left;
+}
+
+.custom-search-form input,
+.custom-search-form button {
+    border-color: #E4E4E4;
+    height: 30px;
+    line-height: 12px;
+    padding: 4px 12px;
+    border-radius: 2px;
+}
+
+.custom-search-form button {
+    color: #CCC;
+}
+
+button {
+    background-color: #333;
+    border: none;
+    height: 28px;
+    line-height: 12px;
+    padding: 4px 12px;
+    border-radius: 2px;
+    color: #FFF;
+    font-size: 12px;
+}
+
+button:hover {
+    background-color: #F48C37;
+}
+
+button.active {
+    background-color: #F48C37;
+}
+
+.title_tool button {
+    float: right;
+    margin-left: 2px;
+}
+
+.title_tool {
+    padding: 8px;
+}
+
+.col-lg-1,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12 {
+    padding: 0px;
+}
+
+.yumod .navbar-default.sidebar {
+    display: none;
+}
+
+.yumod #page-wrapper {
+    height: calc(100% - 60px);
+    border-radius: 4px;
+    position: relative;
+    box-sizing: border-box;
+    margin-left: 0px;
+    padding: 12px 32px 32px 32px;
+    background-color: #FAFAFA;
+}
+
+.page-wrapper-container {
+    box-sizing: border-box;
+    height: 100%;
+    border: 1px solid #E4E4E4;
+    padding: 1px;
+    background-color: #FFF;
+    border-radius: 2px;
+}
+
+.yumod .navbar-default {
+    background-color: #FBFBFB;
+    border: none;
+}
+
+.yumod .navbar-brand {
+    padding: 0px;
+}
+
+.yumod .navbar-brand img {
+    height: 46px;
+    margin-left: 33px;
+}
+
+a {
+    font-weight: 400;
+    color: #000;
+}
+
+.input-group-btn:last-child>.btn {
+    border: 0px;
+    position: absolute;
+    background-color: transparent;
+    top: 0px;
+    left: -33px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+    border-left: 1px solid #EEE;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #DDD;
+    border: 0;
+    border-right: 1px solid #FFF;
+}
+
+.folder_name {
+    float: left;
+    margin-right: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 12px;
+    padding-left: 6px;
+    padding-top: 3px;
+}
+
+.folder_name span {
+    font-size: 10px;
+    color: #999;
+    font-weight: 400;
+}
+
+table tr td:nth-child(1),
+thead tr th:nth-child(1) {
+    width: 50%;
+}
+
+table tr td:nth-child(2),
+thead tr th:nth-child(2) {
+    width: 25%;
+}
+
+table tr td:nth-child(3),
+thead tr th:nth-child(3) {
+    width: 25%;
+}
+
+svg {
+    fill: currentColor;
+}
+
+.score svg {
+    vertical-align: text-bottom;
+    margin-left: 5px;
+}
+
+@media (min-width: 768px) {}
+
+@media (max-width: 767px) {}
+
+
+/* pin_page_css */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.pin_page .row {
+    /* column width */
+    -moz-column-width: 19em;
+    -webkit-column-width: 19em;
+    /* space between columns */
+    -moz-column-gap: 1em;
+    -webkit-column-gap: 1em;
+}
+
+.pin_page .item {
+    display: inline-block;
+    width: 100%;
+}
+
+.pin_page .well {
+    min-height: 20px;
+    padding: 0;
+    margin-bottom: 20px;
+    background-color: #FAFAFA;
+    border: 1px solid #E8E8E8;
+    border-radius: 2px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.pin_page .well .panel-body {
+    padding: 3px;
+}
+
+.pin_page .well .panel-body .panel-body {
+    padding: 12px;
+    border: 0;
+    border-top: 1px solid#EEE;
+}
+
+.pin_page .well .panel {
+    border: 0px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+
+.pin_page .well .panel-group {
+    margin-bottom: 0px;
+}
+
+.pin_page .well .panel-title {}
+
+.pin_page .well .panel-title a {
+    font-size: 14px;
+    text-decoration: none !important;
+    font-weight: 600;
+}
+
+.pin_page .well .panel-title a:hover {
+    text-decoration: none;
+}
+
+.pin_page .panel-heading {
+    border-radius: 2px;
+    position: relative;
+}
+
+.pin_page .panel-heading:hover a {
+    color: #f48a38;
+}
+
+.pin_page ol {
+    padding-left: 20px;
+}
+
+.pin_page ol li a {
+    color: #666;
+    text-decoration: none;
+    line-height: 25px;
+}
+
+.pin_page ol li a:hover {
+    color: #f48a38;
+}
+
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #FFFF;
+    border-color: #ddd;
+    padding: 8px 15px 12px 28px;
+}
+
+.pin_page .well span.count {
+    color: #000;
+    font-size: 11px;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    padding: 13.5px 11px;
+    font-weight: 300;
+}
+
+
+.pin_page .folderLib-list {
+    padding-left: 0px;
+}
+
+.pin_page .well {
+    margin-bottom: 14px;
+}
+
+.pin_page .row {
+    padding-top: 30px;
+}
+
+
+/* last added */
+/* Paste this css to your style sheet file or under head tag */
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(images/Preloader_11.gif) center no-repeat #fff;
+}

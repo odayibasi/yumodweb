@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Yumod</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- JQuery -->
+    <script src="js/jquery/jquery-3.1.1.js"></script>
+    <script src="js/jquery/underscore-min.js"></script>
+    <script src="js/jquery/mustache.min.js"></script>
+    <!--Page Scripts -->
+    <script src="js/core/common.js?v0078"></script>
+    <script src="js/pages/dashboard.js?v0086"></script>
+    <!--CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/sb-admin-2.css">
+    <link rel="stylesheet" type="text/css" href="css/yumod.css?v0040" />
+</head>
+<script id="folderLib-menu-template" type="template/text">
+    <ul class="folderLib-list">
+        {{#folders}}
+        <div class="item well">
+            <div class="panel-body">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                    <span class="count">{{fIndex}}</span>
+<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne_{{fIndex}}" aria-expanded="false" class="collapsed">{{name}}</a>
+                                </h4>
+                        </div>
+                        <div id="collapseOne_{{fIndex}}" class="panel-collapse collapse in" aria-expanded="true" style="">
+                            <div class="panel-body">
+                                <ol class="storyFolder-list">
+                                    {{#stories}}
+                                    <li><a href={{sUrl}} data={{uuid}} class="storyFolder-menu" target="_blank">{{sTitle}}</a></li>
+                                    {{/stories}}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/folders}}
+    </ul>
+</script>
+
+<body>
+    <div class="se-pre-con"></div>
+    <!-- TEMPLATE -->
+    <div class="container pin_page">
+        <h1>YUMOD DASHBOARD</h1>
+        <input type="text" id="txtSearchStory" class="form-control" placeholder="Search...">
+        <div class="row">
+            <div id="folderLib"></div>
+        </div>
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="js/jquery/bootstrap.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/jquery/sb-admin-2.js"></script>
+</body>
+
+</html>
