@@ -9,28 +9,9 @@ var storyModel = null;
 var fModel = fModelFactory.newModel();
 
 
-function getParameterByName(name) {
-    var match = RegExp('[#&]' + name + '=([^&]*)').exec(window.location.hash);
-    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-}
-
-function getAccessToken() {
-    return getParameterByName('access_token');
-}
-
-function getIdToken() {
-    return getParameterByName('id_token');
-}
-
-
-
-
 $(document).ready(function() {
-    access_token = getAccessToken();
-    id_token = getIdToken();
-    console.log("Authorize Access Token:" + access_token);
-    console.log("Authorize Id Token:" + id_token);
-
+    access_token = localStorage.getItem("access_token")
+    id_token = localStorage.getItem("id_token")
 
     $.ajaxSetup({
         "async": true,

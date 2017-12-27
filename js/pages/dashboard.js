@@ -33,7 +33,7 @@ function callGetDashboardData(userId) {
         success: function(data) {
             if (data != undefined) {
                 folderModel = data;
-                $(".se-pre-con").fadeOut("slow");;
+                $(".se-pre-con").fadeOut("slow");
                 renderStories();
             }
         },
