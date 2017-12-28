@@ -13,23 +13,36 @@ function getParameterByName(name) {
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-function getAccessToken() {
-    return getParameterByName('access_token');
+function getErrorType() {
+    return getParameterByName('error');
 }
 
-function getIdToken() {
-    return getParameterByName('id_token');
+function getErrorDescription() {
+    return getParameterByName('error_description');
 }
-
-
 
 
 $(document).ready(function() {
 
+    var errorType = getParameterByName('error');
+    var errorDesc = getParameterByName('error_description');
+    if (errorType == undefined || errorType == null) { //User Authanticeted with Verified Email
+        $("#page-wrapper-error").hide();
+        callWhenAuthenticatedUserEntered();
+    } else {
+        $(".se-pre-con").fadeOut("slow");
+        $("#page-wrapper").hide();
+    }
+
+});
 
 
-    access_token = getAccessToken();
-    id_token = getIdToken();
+
+function callWhenAuthenticatedUserEntered() {
+
+
+    access_token = getParameterByName('access_token');
+    id_token = getParameterByName('id_token');
 
     if (access_token == null || access_token == undefined) {
         access_token = localStorage.getItem("access_token")
@@ -37,7 +50,6 @@ $(document).ready(function() {
     } else {
         localStorage.setItem("access_token", access_token);
         localStorage.setItem("id_token", id_token);
-
     }
 
 
@@ -65,10 +77,10 @@ $(document).ready(function() {
     });
 
 
-    checkStoryLibExist();
+    checkUserSettingsExist();
 
-});
 
+}
 
 
 function logout() {
@@ -85,7 +97,7 @@ function callCreateStoryLib() {
     var refreshFlagMap = { checkMediumAccountUpdateFlag: $("#chckUpdateAccountName").is(':checked') };
     var mediumAccount = { medium_accountname: $("#txtMediumAccount").val(), "refreshFlagMap": refreshFlagMap };
     var mediumAccountStr = JSON.stringify(mediumAccount);
-
+    $(".se-pre-con").show();
 
     var url = "https://api.yumod.com/api/mediumconnects";
     $.ajax({
@@ -145,6 +157,8 @@ function checkUserSettingsExist() {
         success: function(data) {
             if (data.result) {
                 checkStoryLibExist();
+                $("#infoProfileEmail").text(data.data.username);
+                $("#infoProfileAccountType").text(data.data.role);
             } else {
                 $(".se-pre-con").fadeOut("slow");
             }

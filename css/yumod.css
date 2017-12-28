@@ -601,7 +601,6 @@ svg {
     font-weight: 300;
 }
 
-
 .pin_page .folderLib-list {
     padding-left: 0px;
 }
@@ -616,11 +615,25 @@ svg {
 
 
 /* last added */
+
+
 /* Paste this css to your style sheet file or under head tag */
+
+
 /* This only works with JavaScript, 
 if it's not present, don't show loader */
-.no-js #loader { display: none;  }
-.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+
+.no-js #loader {
+    display: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
 .se-pre-con {
     position: fixed;
     left: 0px;
@@ -629,4 +642,101 @@ if it's not present, don't show loader */
     height: 100%;
     z-index: 9999;
     background: url(images/Preloader_11.gif) center no-repeat #fff;
+}
+
+
+/* home */
+
+.add_account #page-wrapper {
+    height: auto;
+    width: 400px;
+    margin: 0px auto;
+    background-color: transparent;
+    border: 0px;
+}
+
+.add_account #page-wrapper .logo img {
+    width: 120px;
+}
+
+.add_account .page-wrapper-container {
+    padding: 30px 60px;
+    position: relative;
+}
+
+.add_account .page-wrapper-container:after {
+    content="";
+    clear: both;
+    display: block;
+    width: 100%;
+}
+
+.add_account .row.logo {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+}
+
+.add_account .row.logo h4 {
+    margin-top: 20px;
+    color: #000;
+}
+
+.add_account button.logout {
+    color: #FFF;
+    border-radius: 2px;
+    height: 30px;
+    text-align: center;
+}
+
+.add_account button.home {
+    color: #FFF;
+    border-radius: 2px;
+    height: 30px;
+    text-align: center;
+    margin-left: 2px;
+}
+
+.add_account button.privacy {
+    color: #FFF;
+    border-radius: 2px;
+    height: 30px;
+    text-align: center;
+    padding: 0;
+    background-color: transparent;
+    border: 0px;
+    color: #333 !important;
+    margin-left: 6px;
+}
+
+.add_account button {
+    color: #fff;
+}
+
+.add_account .main-context input,
+.add_account .main-context button {
+    width: 100%;
+    margin-top: 8px;
+    line-height: 28px;
+    height: 36px;
+    border-radius: 3px;
+}
+
+.add_account .main-context input {
+    padding-left: 8px;
+    padding-right: 8px;
+    border: 1px solid #E4E4E4;
+}
+
+.add_account .user-profile {
+    color: #666;
+    margin-top: 18px;
+    background-color: #F4F4F4;
+    border: 1px solid #EEE;
+    border-radius: 2px;
+    padding: 8px 12px;
+}
+
+.add_account .footer {
+    padding: 8px 18px 8px 13px;
 }

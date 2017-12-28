@@ -60,7 +60,6 @@ function renderStories() {
 
     for (var i = 0; i < sortedFolderModel.folders.length; i++) {
         var stories = sortedFolderModel.folders[i].stories;
-
         sortedFolderModel.folders[i].stories = _.sortBy(stories, function(s) {
             return s.sIndex;
         });
@@ -73,8 +72,6 @@ function renderStories() {
     $("#folderLib").html(theHtml);
 
 }
-
-
 
 
 

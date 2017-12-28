@@ -11,28 +11,63 @@
     <script src="js/jquery/mustache.min.js"></script>
     <!--Page Scripts -->
     <script src="js/core/model.js?v0023"></script>
-    <script src="js/pages/home.js?v0081"></script>
-    <!--CSS -->
+    <script src="js/pages/home.js?v0088"></script>
+    <!--CSS-->
     <link rel="shortcut icon" type="image/png" href="css/images/favicon.png" />
-    <link rel="stylesheet" type="text/css" href="css/yumod.css?v0034" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/sb-admin-2.css">
+    <link rel="stylesheet" type="text/css" href="css/yumod.css?v0040" />
 </head>
 
-<body>
+<body class="yumod add_account">
     <div class="se-pre-con"></div>
-    <div class="main-context">
-        <h1>YUMOD HOME PAGE</h1>
-        <button onclick="logout();" type="button">Logout</button>
-        <div><span>medium account:</span>
-            <input type="text" id="txtMediumAccount">
-            <!--             <input type="checkbox" id="chckUpdateAccountName">Update Account Name</input>
- -->
-            <button id="btnCreateStoryLib" type="button">Create Story Library</button>
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="row logo">
+                <div class="col-lg-12"><img src="css/images/yumod_logo.png"></div>
+                <div class="col-lg-12">
+                    <h4>Wellcome Yumod </h4> Please, write your <b>Medium account</b> name to begin Yumod</div>
+            </div>
+            <!-- row logo -->
+            <div class="page-wrapper-container">
+                <div class="wrapper-folder">
+                    <div class="row">
+                        <div class="se-pre-con"></div>
+                        <div class="main-context">
+                            <div><span><h4>Medium Account:</h4></span>
+                                <input type="text" id="txtMediumAccount">
+                                <button id="btnCreateStoryLib" type="button">Create Story Library</button>
+                            </div>
+                            <div class=user-profile>
+                                <div>Email:<span id="infoProfileEmail"></span></div>
+                                <div>Account Type:<span id="infoProfileAccountType"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row footer">
+                <button onclick="home" type="button" class="privacy pull-left">Privacy&Policy </button>
+                <button onclick="logout();" type="button" class="logout pull-right"><i class="fa fa-sign-out"></i> Logout</button>
+            </div>
         </div>
-        <div class="user-profile">
-            <div>Username:<span id="infoProfileName"><span></div>
-            <div>Email:<span id="infoProfileEmail"><span></div> 
+        <div id="page-wrapper-error">
+            <div class="row logo">
+                <div class="col-lg-12"><img src="css/images/yumod_logo.png"></div>
+                <div class="col-lg-12">
+                    <h4>Please Verifiy Your Email First</div>
+            </div>
+            <div class="row footer">
+                <button onclick="logout();" type="button" class="logout pull-right"><i class="fa fa-sign-out"></i> Exit</button>
+            </div>
         </div>
+        <!-- E.O: page-wrapper-->
     </div>
+    <!-- E.O: wrapper-->
+    <script src="js/jquery/bootstrap.min.js"></script>
+    <script src="js/jquery/sb-admin-2.js"></script>
+</body>
 </body>
 
 </html>
