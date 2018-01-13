@@ -57,6 +57,15 @@ html {
     text-align: center;
     font-size: 14px;
     text-align: left;
+    position: relative;
+}
+
+.wrapper-folder .form-control {
+    height: 26px;
+    border-radius: 2px;
+    border: 1px solid #E4E4E4;
+    padding: 6px 12px;
+    font-size: 13px;
 }
 
 .folder_img {
@@ -614,10 +623,32 @@ svg {
 }
 
 
+/* Not Archieved and Archived Icon */
+
+.title_tool button span {
+    margin-left: 6px;
+    background-color: #FFF;
+    padding: 0px 6px 0px 6px;
+    border-radius: 3px;
+    color: #666;
+    opacity: 0.9;
+    font-size: 11px;
+}
+
+.navbar-tool {
+    float: right;
+    display: block;
+    box-sizing: border-box;
+}
+
+.navbar-tool a,
+.navbar-tool button {
+    float: right;
+    display: block;
+}
+
+
 /* last added */
-
-
-/* Paste this css to your style sheet file or under head tag */
 
 
 /* This only works with JavaScript, 
@@ -739,4 +770,244 @@ if it's not present, don't show loader */
 
 .add_account .footer {
     padding: 8px 18px 8px 13px;
+}
+
+
+/*.-----  */
+
+.navbar-tool {
+    margin-top: 12px;
+}
+
+.navbar-tool button {
+    margin-left: 2px;
+}
+
+.navbar-header span {
+    padding-left: 16px;
+    line-height: 49px;
+    color: #666;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: middle;
+}
+
+.navbar-header span:before {
+    content: "\f23a";
+    width: 32px;
+    font-size: 18px !important;
+    display: inline-block;
+    text-align: right;
+    margin-right: 10px;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/*.-----  */
+
+@media (max-width:992px) {
+    .page-wrapper-container,
+    .wrapper-folder,
+    .wrapper-library {
+        height: auto !important;
+    }
+    .wrapper-folder-list {
+        border-left: 0;
+        border-top: 1px solid #EEE;
+        margin-top: 12px;
+        padding-top: 10px
+    }
+    .wrapper-folder-list ul li,
+    .wrapper-library ul li {
+        display: flex;
+        padding-right: 60px;
+        position: relative;
+    }
+    .wrapper-folder-list ul li button,
+    .wrapper-library ul li button {
+        position: absolute;
+        right: 6px;
+        top: 2px;
+    }
+    .score,
+    .date {
+        display: none !important;
+    }
+    .wrapper-folder-list ul li .number {
+        width: 18px !important;
+    }
+}
+
+@media (min-width:992px) and (max-width:1146px) {
+    .folder_name {
+        width: calc(100% - 60px)!important;
+        margin-bottom: 8px;
+    }
+    .wrapper-folder-list ul {
+        height: calc(100% - 86px);
+    }
+}
+
+@media (max-width:700px) {
+    .folder_name {
+        width: calc(100% - 60px)!important;
+        margin-bottom: 8px;
+    }
+}
+
+.navbar-toggle {
+    display: none;
+}
+
+@media (max-width:768px) {
+    .navbar-right {
+        float: right!important;
+        margin-right: -15px;
+    }
+    .navbar-header {
+        float: left;
+    }
+}
+
+@media (max-width:540px) {
+    .yumod .navbar-brand img {
+        margin-left: 0px;
+    }
+    #page-wrapper {
+        padding: 12px !important;
+    }
+    .col-md-5,
+    .col-md-7 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #eee;
+    border-color: #eee;
+}
+
+#btnYourDashboard {
+    padding: 5px 14px 5px 0px;
+    font-size: 13px;
+    color: #f48a38;
+    margin-right: 2px;
+    border-radius: 21px;
+}
+
+#btnYourDashboard:before {
+    content: "\f0ac";
+    width: 23px;
+    font-size: 13.5px !important;
+    display: inline-block;
+    text-align: right;
+    margin-right: 10px;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: #fbfbfb;
+}
+
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #eee;
+    border-color: #eee;
+}
+
+#btnAddNewFolderOK,
+#btnAddNewFolderCancel,
+#btnUpdateFolderCancel,
+#btnUpdateFolderOK {
+    text-decoration: none;
+    cursor: pointer;
+    color: #FFF;
+    font-size: 11px;
+    top: 4px;
+    border-radius: 2px;
+    position: absolute;
+    padding: 2px 6px 1px 6px;
+}
+
+#btnAddNewFolderOK,
+#btnUpdateFolderOK {
+    background-color: #AAA;
+    right: 52px;
+}
+
+#btnAddNewFolderCancel,
+#btnUpdateFolderCancel {
+    background-color: #AAA;
+    right: 4px;
+}
+
+#btnAddNewFolderOK:hover,
+#btnAddNewFolderCancel:hover,
+#btnUpdateFolderCancel:hover,
+#btnUpdateFolderOK:hover {
+    background-color: #f48a38;
+}
+
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover {
+    color: #000;
+}
+
+#btnStoryRefresher {
+    width: 25px;
+    margin-top: -1px;
+    font-size: 13px;
+    border-radius: 50%;
+    margin-right: 8px;
+    text-align: center;
+    background-color: #EEE;
+    border: 1px solid #E4E4E4;
+    color: #333;
+    padding: unset;
+    float: left;
+    height: auto;
+    line-height: 23px;
+}
+
+#btnStoryRefresher:hover {
+    background-color: #000;
+    color: #DDD;
+}
+
+
+/*======SHARE BUTTONS=======================*/
+
+#share-buttons img {
+    width: 35px;
+    padding: 5px;
+    border: 0;
+    box-shadow: 0;
+    display: inline;
 }

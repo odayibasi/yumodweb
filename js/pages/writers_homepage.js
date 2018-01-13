@@ -19,6 +19,25 @@ $(document).ready(function() {
 
 
 
+    $('#toggleFolder').change(function() {
+        var collapseFlag=$(this).prop('checked');
+        if(collapseFlag){
+            $(".panel-collapse").removeClass("in");              
+        }else{
+            $(".panel-collapse").addClass("in");                          
+        }
+    })
+
+
+
+    //Insert Sharings
+    var shareData = { shareURL: url }
+    var theTemplate = $("#share-template").html();
+    var theHtml = Mustache.to_html(theTemplate, shareData);
+    $("#share-buttons").html(theHtml);
+
+
+
 });
 
 

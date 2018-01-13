@@ -27,15 +27,15 @@ $(document).ready(function() {
     var errorType = getParameterByName('error');
     var errorDesc = getParameterByName('error_description');
     if (errorType == undefined || errorType == null) { //User Authanticeted with Verified Email
-        $("#page-wrapper-error").hide();
+        $("#mediumConnectErrorContainer").hide();
         callWhenAuthenticatedUserEntered();
     } else {
         $(".se-pre-con").fadeOut("slow");
-        $("#page-wrapper").hide();
+        $("#mediumConnectContainer").hide();
+        $("#titleInfo").html("");
     }
 
 });
-
 
 
 function callWhenAuthenticatedUserEntered() {

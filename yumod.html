@@ -13,17 +13,28 @@
     <script src="js/jquery/underscore-min.js"></script>
     <script src="js/jquery/mustache.min.js"></script>
     <!--Page Scripts -->
-    <script src="js/core/model.js?v00347"></script>
+    <script src="js/core/model.js?v00349"></script>
     <script src="js/core/common.js?v0032"></script>
-    <script src="js/pages/yumod.js?v0161"></script>
+    <script src="js/pages/yumod.js?v0209"></script>
     <!--CSS-->
     <link rel="shortcut icon" type="image/png" href="css/images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/sb-admin-2.css">
-    <link rel="stylesheet" type="text/css" href="css/yumod.css?v0036" />
+    <link rel="stylesheet" type="text/css" href="css/yumod.css?v0044" />
     <!-- Sortable -->
     <script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111668366-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-111668366-1');
+    </script>
 </head>
 <script id="storyLib-menu-template" type="template/text">
     {{#stories}}
@@ -37,7 +48,7 @@
         <div class="folder_img fa fa-folder">
         </div>
         <div class="folder_title"> {{name}}
-            <a href="">...</a>
+            <a class="btnUpdateFolder" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
         </div>
     </div>
     {{/folders}}
@@ -51,6 +62,28 @@
 </script>
 
 <body class="yumod">
+    <div id="containerNewFolderTemplate" class="template">
+        <div id="containerNewFolder" class="container_new_folder">
+            <div class="folder_img fa fa-folder">
+            </div>
+            <div class="folder_title">
+                <input type="text" id="txtFolderName" class="form-control" placeholder="Folder Name">
+                <a id="btnAddNewFolderOK">OK</a>
+                <a id="btnAddNewFolderCancel">Cancel</a>
+            </div>
+        </div>
+    </div>
+    <div id="containerUpdateFolderTemplate" class="template">
+        <div id="containerUpdateFolder" class="container_update_folder">
+            <div class="folder_img fa fa-folder">
+            </div>
+            <div class="folder_title">
+                <input type="text" id="txtFolderName2" class="form-control" placeholder="Folder Name">
+                <a id="btnUpdateFolderOK">OK</a>
+                <a id="btnUpdateFolderCancel">Cancel</a>
+            </div>
+        </div>
+    </div>
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -62,10 +95,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html"><img src="css/images/yumod_logo.png"></a>
-                <input type="text" id="txtMediumAccount" value="odayibasi">
-                <button id="btnShareFolder">Share Model</button>
-                <button id="btnSaveFolders">Save Model</button>
-                <div><a id="btnYourDashboard" href="" class="your-dashboard-link" target="_blank">Your Public Dashboard</a></div>
+                <span id="txtMediumAccount">Your Medium Account Name</span>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
@@ -75,10 +105,9 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="settings.html"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
+<!--                         <li><a href="settings.html"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
                         <li class="divider"></li>
-                        <li><a onclick="logout();" href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+ -->                        <li><a onclick="logout();" href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -86,25 +115,28 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
+            <div class="navbar-tool">
+                <button id="btnSaveFolders">Save Model</button>
+                <button id="btnShareFolder">Share Model</button>
+                <a id="btnYourDashboard" href="" class="your-dashboard-link" target="_blank">Your Public Dashboard</a>
+            </div>
         </nav>
         <div id="page-wrapper">
             <div class="page-wrapper-container">
                 <div class="wrapper-folder">
-                    <div class="col-lg-5 wrapper-folder-title">
+                    <div class="col-md-5 wrapper-folder-title">
                         <div class="title_tool">
                             <div class="input-group custom-search-form">
                                 <input type="text" id="txtSearchFolder" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
                             </div>
-                            <input type="text" id="txtFolderName" placeholder="Folder Name">
-                            <button id="btnUpdateFolder">Update</button>
-                            <button id="btnCreateFolder">Add</button>
+                            <button id="btnAddNewFolder">Add Folder</button>
                         </div>
                         <div id="folderLib" class="folder_list list-group">
                         </div>
                         <!-- E.0 folder_list-->
                     </div>
-                    <div class="col-lg-7 wrapper-folder-list">
+                    <div class="col-md-7 wrapper-folder-list">
                         <div class="title_tool">
                             <div class="folder_img fa fa-folder">
                             </div>
@@ -128,6 +160,9 @@
                 <div class="wrapper-library">
                     <div class="title_tool">
                         <div class="folder_name">
+                            <button id="btnStoryRefresher" <i class="fa fa-refresh" aria-hidden="true">
+                                </i>
+                            </button>
                             Library
                             <br>
                             <span id="storyLibLastUpdate">Last Update: 30.12.2017</span>

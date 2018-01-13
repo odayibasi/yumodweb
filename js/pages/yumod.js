@@ -3,13 +3,22 @@ var id_token = "";
 var selectedFolderUUID = null;
 var isStoryLibMode = true;
 var isStoryLibSort = "Date";
+var updatedFolderData = {}
 
 //Model
 var storyModel = null;
 var fModel = fModelFactory.newModel();
 
 
+
+
+
 $(document).ready(function() {
+
+    //Visibility
+    $("#btnYourDashboard").hide();
+
+
     access_token = localStorage.getItem("access_token")
     id_token = localStorage.getItem("id_token")
 
@@ -28,29 +37,119 @@ $(document).ready(function() {
 
     });
 
-    $("#btnCreateFolder").click(function(e) {
+
+    //========== NEW FOLDER CREATION
+
+    $("#btnAddNewFolder").click(function(e) {
         e.preventDefault();
-        var folderName = $("#txtFolderName").val();
-        fModel.addFolder(folderName);
-        renderFolders(fModel);
+        $("#folderLib").prepend($("#containerNewFolder"));
+        $(".folderLib-menu").removeClass("active");
+        $("#txtFolderName").focus();
+        $("#btnUpdateFolderCancel").click(); //UpdateFolder Cancel if Open
+
     });
 
-    $("#btnUpdateFolder").click(function(e) {
+
+    $(document).on("keyup", "#txtFolderName", function(e) {
         e.preventDefault();
+        if (e.keyCode == 13) {
+            $("#btnAddNewFolderOK").click();
+        } else if (e.keyCode == 27) {
+            $("#btnAddNewFolderCancel").click();
+        }
+    });
+
+    $("#btnAddNewFolderOK").click(function(e) {
+        e.preventDefault();
+        var folderName = $("#txtFolderName").val();
+        $("#txtFolderName").val("");
+        $("#containerNewFolderTemplate").prepend($("#containerNewFolder"));
+        var newFolder = fModel.addFolderToFirst(folderName);
+        selectedFolderUUID = newFolder.uuid;
+        renderFolders(fModel);
+        renderStoriesInFolder();
+    });
+
+
+    $("#btnAddNewFolderCancel").click(function(e) {
+        e.preventDefault();
+        $("#txtFolderName").val("");
+        $("#containerNewFolderTemplate").prepend($("#containerNewFolder"));
+    });
+
+
+    //========== FOLDER UPDATE
+
+    $(document).on("click", ".btnUpdateFolder", function(e) {
+        e.preventDefault();
+        var selectedFolderObj = $(this).parents(".folderLib-menu");
+        if (updatedFolderData.obj != undefined) { //Prev Obj Undefined Cancelling
+            $("#txtFolderName2").val("");
+            $("#containerUpdateFolderTemplate").prepend($("#containerUpdateFolder"));
+            updatedFolderData.obj.html(updatedFolderData.html);
+        }
+        updatedFolderData.html = selectedFolderObj.html();
+        updatedFolderData.uuid = selectedFolderObj.attr("id");
+        updatedFolderData.text = selectedFolderObj.children(".folder_title").text().trim();
+        updatedFolderData.obj = selectedFolderObj;
+        selectedFolderObj.empty();
+        selectedFolderObj.append($("#containerUpdateFolder"));
+        $("#txtFolderName2").val(updatedFolderData.text);
+        $("#txtFolderName2").focus();
+        $("#btnAddNewFolderCancel").click(); //NewFolder Cancel if Open
+
+    });
+
+
+
+
+    $(document).on("keyup", "#txtFolderName2", function(e) {
+        e.preventDefault();
+        if (e.keyCode == 13) {
+            $("#btnUpdateFolderOK").click();
+        } else if (e.keyCode == 27) {
+            $("#btnUpdateFolderCancel").click();
+        }
+    });
+
+
+    $("#btnUpdateFolderCancel").click(function(e) {
+        e.preventDefault();
+        $("#txtFolderName2").val("");
+        $("#containerUpdateFolderTemplate").prepend($("#containerUpdateFolder"));
+        updatedFolderData.obj.html(updatedFolderData.html);
+        updatedFolderData = {};
+    });
+
+
+    $("#btnUpdateFolderOK").click(function(e) {
+        e.preventDefault();
+        var folderName = $("#txtFolderName2").val();
+        $("#txtFolderName2").val("");
+        $("#containerUpdateFolderTemplate").prepend($("#containerUpdateFolder"));
+        updatedFolderData.obj.html(updatedFolderData.html);
+        selectedFolderUUID = updatedFolderData.uuid;
         if (selectedFolderUUID != null) {
-            var folderName = $("#txtFolderName").val();
             var params = { name: folderName };
             fModel.updateFolder(selectedFolderUUID, params);
             renderFolders(fModel);
         } else {
             alert("No Selected Folder Exist. Please Select Folder");
         }
+        updatedFolderData = {};
+
     });
+
+
+
+
 
 
     $("#btnDeleteFolder").click(function(e) {
         e.preventDefault();
         if (selectedFolderUUID != null) {
+            $("#btnAddNewFolderCancel").click();
+            $("#btnUpdateFolderCancel").click();
             fModel.deleteFolder(selectedFolderUUID);
             selectedFolderUUID = null;
             renderFolders(fModel);
@@ -83,10 +182,6 @@ $(document).ready(function() {
         e.preventDefault();
         callSaveFolderModel();
     });
-
-
-
-
 
 
 
@@ -228,6 +323,15 @@ $(document).ready(function() {
         isStoryLibSort = "Content";
         applyStoryLibMode();
     });
+
+
+
+    $("#btnStoryRefresher").click(function(e) {
+        e.preventDefault();
+        callCreateStoryLib();
+    });
+
+
 
 
 
@@ -438,13 +542,12 @@ function callCreateStoryLib() {
                 var theTemplate = $("#storyLib-menu-template").html();
                 var theHtml = Mustache.to_html(theTemplate, storyModel);
                 $("#storyLib").html(theHtml);
+                $("#txtMediumAccount").html(storyModel.medium_accountname);
                 applyStoryLibMode();
             }
         },
         error: function(textStatus, errorThrown) {
-            console.log(textStatus);
-            $("#warningArea").html(textStatus.responseText);
-
+            handleErrors(textStatus, errorThrown);
         }
     });
 }
@@ -470,9 +573,7 @@ function callSaveFolderModel() {
             }
         },
         error: function(textStatus, errorThrown) {
-            console.log(textStatus);
-            $("#warningArea").html(textStatus.responseText);
-
+            handleErrors(textStatus, errorThrown);
         }
     });
 }
@@ -489,14 +590,12 @@ function callShareFolderModel() {
         contentType: "application/json",
         success: function(data) {
             if (data.result) {
-                $("#btnYourDashboard").attr("href", "dashboard.html#" + data.dashboardID);
+                $("#btnYourDashboard").attr("href", "writers_homepage.html#" + data.dashboardID);
                 $("#btnYourDashboard").show();
             }
         },
         error: function(textStatus, errorThrown) {
-            console.log(textStatus);
-            $("#warningArea").html(textStatus.responseText);
-
+            handleErrors(textStatus, errorThrown);
         }
     });
 }
@@ -519,14 +618,13 @@ function callGetFolderModel() {
             if (data.result) {
                 fModel.fromJSON(data.data);
                 renderFolders(fModel)
+                $(".folderLib-menu").first().click();
 
 
             }
         },
         error: function(textStatus, errorThrown) {
-            console.log(textStatus);
-            $("#warningArea").html(textStatus.responseText);
-
+            handleErrors(textStatus, errorThrown)
         }
     });
 
@@ -542,6 +640,7 @@ function callGetFolderModel() {
 function renderFolders(folderModel) {
     var sortedFolderModel = { folders: [] };
     sortedFolderModel.folders = _.sortBy(folderModel.folders, function(f) {
+        if (f.fIndex == undefined) return -1;
         return f.fIndex;
     });
 
@@ -631,4 +730,19 @@ function filterFolderLib() {
         }
     });
 
+}
+
+
+
+
+
+/*============================================================================
+        HANDLE ERRORS
+==============================================================================*/
+
+function handleErrors(textStatus, errorThrown) {
+    if (textStatus.status = 401) { //UnAuthorized
+        window.location = "index.html?error=Authorization Token Expired. Please Login"
+    }
+    $("#warningArea").html(textStatus.responseText);
 }

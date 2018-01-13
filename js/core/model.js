@@ -44,6 +44,13 @@ fModelFactory.newModel = function(config) {
         return folder;
     };
 
+    fModel.addFolderToFirst = function(name) {
+        var folder = new Folder(name);
+        fModel.folders.unshift(folder);
+        return folder;
+    };
+
+
 
     fModel.getFolder = function(uuid) {
         var folders = fModel.folders

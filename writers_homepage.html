@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>yumod</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This pages is @odayibasi stories sharings">
+    <meta name="keywords" content="medium,stories,grouping,ordering">
+    <!-- JQuery -->
+    <script src="js/jquery/jquery-3.1.1.js"></script>
+    <script src="js/jquery/underscore-min.js"></script>
+    <script src="js/jquery/mustache.min.js"></script>
+    <!-- Toggle-->
+    <link href="js/bootstrap-toggle/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="js/bootstrap-toggle/js/bootstrap-toggle.js?001"></script>
+    <!--Page Scripts -->
+    <script src="js/core/common.js?v0078"></script>
+    <script src="js/pages/writers_homepage.js?v0089"></script>
+    <!--CSS -->
+    <link rel="shortcut icon" type="image/png" href="css/images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/sb-admin-2.css">
+    <link rel="stylesheet" type="text/css" href="css/yumod.css?v0036" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111668366-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-111668366-1');
+    </script>
+</head>
+<script id="folderLib-menu-template" type="template/text">
+    <ul class="folderLib-list">
+        {{#folders}}
+        <div class="item well">
+            <div class="panel-body">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                    <span class="count">{{fIndex}}</span>
+<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne_{{fIndex}}" aria-expanded="false" class="collapsed">{{name}}</a>
+                                </h4>
+                        </div>
+                        <div id="collapseOne_{{fIndex}}" class="panel-collapse collapse in" aria-expanded="true" style="">
+                            <div class="panel-body">
+                                <ol class="storyFolder-list">
+                                    {{#stories}}
+                                    <li><a href={{sUrl}} data={{uuid}} class="storyFolder-menu" target="_blank">{{sTitle}}</a></li>
+                                    {{/stories}}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/folders}}
+    </ul>
+</script>
+<script id="share-template" type="template/text">
+    <!-- Buffer -->
+    <a href="https://bufferapp.com/add?url=https://simplesharebuttons.com&amp;text=Simple Share Buttons" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/buffer.png" alt="Buffer" />
+    </a>
+    <!-- Digg -->
+    <a href="http://www.digg.com/submit?url=https://simplesharebuttons.com" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/diggit.png" alt="Digg" />
+    </a>
+    <!-- Email -->
+    <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com">
+        <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+    </a>
+    <!-- Facebook -->
+    <a href="http://www.facebook.com/sharer.php?u={{shareURL}}" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+    </a>
+    <!-- Google+ -->
+    <a href="https://plus.google.com/share?url={{shareURL}}" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
+    </a>
+    <!-- LinkedIn -->
+    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{shareURL}}" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+    </a>
+    <!-- Pinterest -->
+    <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+        <img src="https://simplesharebuttons.com/images/somacro/pinterest.png" alt="Pinterest" />
+    </a>
+    <!-- Print -->
+    <a href="javascript:;" onclick="window.print()">
+        <img src="https://simplesharebuttons.com/images/somacro/print.png" alt="Print" />
+    </a>
+    <!-- Reddit -->
+    <a href="http://reddit.com/submit?url={{shareURL}}&amp;title={{shareTitle}}" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/reddit.png" alt="Reddit" />
+    </a>
+    <!-- StumbleUpon-->
+    <a href="http://www.stumbleupon.com/submit?url={{shareURL}}&amp;title={{shareTitle}}" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/stumbleupon.png" alt="StumbleUpon" />
+    </a>
+    <!-- Tumblr-->
+    <a href="http://www.tumblr.com/share/link?url={{shareURL}}&amp;title={{shareTitle}}" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/tumblr.png" alt="Tumblr" />
+    </a>
+    <!-- Twitter -->
+    <a href="https://twitter.com/share?url={{shareURL}}&amp;text={{shareTitle}}&amp;hashtags=simplesharebuttons" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+    </a>
+    <!-- VK -->
+    <a href="http://vkontakte.ru/share.php?url={{shareURL}}" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/vk.png" alt="VK" />
+    </a>
+    <!-- Yummly -->
+    <a href="http://www.yummly.com/urb/verify?url={{shareURL}}&amp;title={{shareTitle}}" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/yummly.png" alt="Yummly" />
+    </a>
+</script>
+
+<body class="yumod">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"><img src="css/images/yumod_logo.png"></a>
+        </div>
+    </nav>
+    <div class="se-pre-con"></div>
+    <!-- TEMPLATE -->
+    <div class="container pin_page">
+        <h1>WRITER HOMEPAGE</h1>
+        <input type="text" id="txtSearchStory" class="form-control" placeholder="Search...">
+        <div class="collapseSettings">
+            <label>
+                <input id="toggleFolder" type="checkbox" data-toggle="toggle" data-size="mini"> Collapse All Folder
+            </label>
+        </div>
+        <!-- I got these buttons from simplesharebuttons.com -->
+        <div id="share-buttons">
+        </div>
+        <div class="row">
+            <div id="folderLib"></div>
+        </div>
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="js/jquery/bootstrap.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/jquery/sb-admin-2.js"></script>
+</body>
+
+</html>

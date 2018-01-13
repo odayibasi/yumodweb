@@ -18,6 +18,17 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/sb-admin-2.css">
     <link rel="stylesheet" type="text/css" href="css/yumod.css?v0040" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111668366-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-111668366-1');
+    </script>
+
+    
 </head>
 
 <body class="yumod add_account">
@@ -26,11 +37,11 @@
         <div id="page-wrapper">
             <div class="row logo">
                 <div class="col-lg-12"><img src="css/images/yumod_logo.png"></div>
-                <div class="col-lg-12">
+                <div class="col-lg-12" id="titleInfo">
                     <h4>Wellcome Yumod </h4> Please, write your <b>Medium account</b> name to begin Yumod</div>
             </div>
             <!-- row logo -->
-            <div class="page-wrapper-container">
+            <div id="mediumConnectContainer" class="page-wrapper-container">
                 <div class="wrapper-folder">
                     <div class="row">
                         <div class="se-pre-con"></div>
@@ -47,19 +58,20 @@
                     </div>
                 </div>
             </div>
+            <!-- row logo -->
+            <div id="mediumConnectErrorContainer" class="page-wrapper-container">
+                <div class="wrapper-folder">
+                    <div class="row">
+                        <div class="se-pre-con"></div>
+                        <div class="main-context">
+                            Please verifiy your email first. Look your email folder for verification email.
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row footer">
                 <button onclick="home" type="button" class="privacy pull-left">Privacy&Policy </button>
                 <button onclick="logout();" type="button" class="logout pull-right"><i class="fa fa-sign-out"></i> Logout</button>
-            </div>
-        </div>
-        <div id="page-wrapper-error">
-            <div class="row logo">
-                <div class="col-lg-12"><img src="css/images/yumod_logo.png"></div>
-                <div class="col-lg-12">
-                    <h4>Please Verifiy Your Email First</div>
-            </div>
-            <div class="row footer">
-                <button onclick="logout();" type="button" class="logout pull-right"><i class="fa fa-sign-out"></i> Exit</button>
             </div>
         </div>
         <!-- E.O: page-wrapper-->
