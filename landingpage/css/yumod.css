@@ -1,0 +1,52 @@
+/*!
+ * Start Bootstrap - Resume v4.0.0-beta.2 (https://startbootstrap.com/template-overviews/resume)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-resume/blob/master/LICENSE)
+ */
+body {}
+
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #666;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #000;
+}
+
+
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+    color: #f58935;
+}
+
+.bg-primary {
+    background-color: #FFF !important;
+}
+
+.container-fluid { background-color:#F8F8F8;}
+
+.container_nav img{ width:80% !important; margin:auto auto 0px;}
+
+.navbar-collapse { margin-left:calc(50% - 150px);}
+
+.container_nav { position:relative; }
+
+.container_nav .sign_in{ position:absolute; top:40px; right:40px; font-size:12px; color:#666 !important; border:1px solid #999; padding:0 14px; line-height:26px; text-decoration:none;}
+.container_nav .sign_in:hover{color:#f58935 !important; border-color:#f58935; cursor:pointer;}
+.mobil_banner{ display:none;}
+
+
+@media (max-width: 992px) {
+	
+.navbar { padding:4px;}
+.container_nav{ width:100%;}
+.container_nav .sign_in{ top:10px; right:44px;}
+#sideNav{ width:100%;}
+.container_nav .navbar-toggler { position:absolute; top:10px; right:5px; border-radius:0; background-color:#FFF; padding:0px; height:auto; background-position:center center; width:28px; height:28px; background-size:60%; border:1px solid #999; }
+.navbar-brand { background-image:url(../img/yumod_logo.png); width:120px; height:42px; background-size:contain; background-repeat:no-repeat; margin-top:3px; margin-left:3px;}
+button.navbar-toggler .fa{ color:#000; font-size:12px; line-height:28px;}
+.mobil_banner{ display:block; width:100%; padding:0; text-align:center;}
+.mobil_banner img { width:100%;}
+}
+
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>yumod</title>
@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="css/images/favicon.png" />
     <link rel="apple-touch-icon" href="css/images/favicon.png">
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111668366-1"></script>
     <script>
@@ -19,22 +18,108 @@
     gtag('js', new Date());
     gtag('config', 'UA-111668366-1');
     </script>
+    <!-- Bootstrap core CSS -->
+    <link href="landingpage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="landingpage/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="landingpage/css/yumod.css" rel="stylesheet">
+    <link href="landingpage/vendor/devicons/css/devicons.min.css" rel="stylesheet">
+    <link href="landingpage/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="landingpage/css/index.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <h1>YUMOD INDEX PAGE</h1>
-    <a href="https://odayibasi.auth0.com/authorize?scope=write:storyman&audience=https://api.yumod.com/storyman&response_type=token&client_id=LI0OH0sOrXzbeV45SzRqlSWYyW3aeOKM&redirect_uri=https://yumod.com/home.html">
-  Sign In
-    </a>
-    <div>
-        <video controls="controls" width="800" height="600" name="About Yumod" src="https://yumod.com/videos/about2.mov"></video>
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <div class="container_nav">
+            <a href="https://odayibasi.auth0.com/login?client=LI0OH0sOrXzbeV45SzRqlSWYyW3aeOKM&protocol=oauth2&redirect_uri=https%3A%2F%2Fyumod.com%2Fhome.html&scope=write%3Astoryman&audience=https%3A%2F%2Fapi.yumod.com%2Fstoryman&response_type=token&state=yxCKroC-cpTZwAXDfvBfDse3jWR9PLBl" class="sign_in">sign in</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none"></span>
+                <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="landingpage/img/banner2.jpg" alt="">
+        </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#experience">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid p-0">
+        <section class="mobil_banner">
+            <img src="landingpage/img/banner.png">
+        </section>
+        <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+            <div class="my-auto">
+                <h1 class="mb-0">YUMOD</h1>
+                <video controls="controls" width="80%" height="auto" name="About Yumod" src="https://yumod.com/videos/about2.mov"></video>
+                <div class="subheading mb-5">Utilities for Medium Writers
+                    <a href="mailto:yumod.apps@gmail.com">yumod.apps@gmail.com</a>
+                </div>
+                <p class="mb-5">All stories one page in 2 minutes. Sync, Manage and Share. First connect medium account and syncronize all story. Second group and order your stories using folders.Third share it.</p>
+                <ul class="list-inline list-social-icons mb-0">
+                    <li class="list-inline-item">
+                        <a href="https://medium.com/yumod">
+                            <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/YumodApps-342832609458442/">
+                            <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/YumodApps">
+                            <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
+            <div class="my-auto">
+                <h2 class="mb-5">About Us</h2>
+                <div class="resume-item d-flex flex-column flex-md-row mb-5">
+                    <div class="resume-content mr-auto">
+                        <h3 class="mb-0">Why We Build Yumod</h3>
+                        <div class="subheading mb-3">Our Purpose</div>
+                        <p>We love medium. We are fan of medium. We want to contribute some good features to this ecosystem. Not only writing or reading. Also we can develop some productivity tools for medium writers and we start yumod :)</p>
+                    </div>
+                    <div class="resume-date text-md-right">
+                        <span class="text-primary">Jan 2013 - 17</span>
+                    </div>
+                </div>
+            </div>
     </div>
+    </section>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="landingpage/vendor/jquery/jquery.min.js"></script>
+    <script src="landingpage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="landingpage/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="landingpage/js/index.min.js"></script>
 </body>
-<div>
-    <a href="https://medium.com/yumod" target="_blank">Blog</a>
-    <a href="mailto:yumod.apps@gmail.com"
-        <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />Feedback
-    </a>
-</div>
 
 </html>
