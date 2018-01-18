@@ -61,11 +61,12 @@ html {
 }
 
 .wrapper-folder .form-control {
-    height: 26px;
-    border-radius: 2px;
-    border: 1px solid #E4E4E4;
+    height: 29px;
+    border-radius: 3px !important;
     padding: 6px 12px;
     font-size: 13px;
+    border: 1px solid #EEE;
+    background: #F8F8F8;
 }
 
 .folder_img {
@@ -226,7 +227,8 @@ ul li:hover button {
 
 .wrapper-library ul {
     margin: 0px;
-    padding: 20px;
+    padding: 12px 8px;
+    width: 100%;
 }
 
 .wrapper-library ul li {
@@ -283,7 +285,7 @@ ul li:hover button {
 
 .wrapper-library .filter_tool {
     float: right;
-    width: 160px;
+    width: 133px;
     line-height: 25px;
 }
 
@@ -370,8 +372,9 @@ button.active {
 }
 
 .title_tool button {
-    float: right;
+    float: left;
     margin-left: 2px;
+    margin-right: 2px;
 }
 
 .title_tool {
@@ -768,6 +771,15 @@ if it's not present, don't show loader */
     padding: 8px 12px;
 }
 
+.user-profile div {
+    font-weight: bold;
+}
+
+.user-profile span {
+    font-weight: normal;
+    margin-left: 3px;
+}
+
 .add_account .footer {
     padding: 8px 18px 8px 13px;
 }
@@ -808,6 +820,35 @@ if it's not present, don't show loader */
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.wrapper-library .folder_name {
+    width: 100% !important;
+    overflow: hidden;
+}
+
+.wrapper-library .wrapper-library-col1 {
+    display: flex;
+    float: left;
+    width: 100%;
+}
+
+.wrapper-library .wrapper-library-col2 {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-top: 8px;
+    border-top: 1px solid #E4E4E4;
+    padding-top: 8px;
+}
+
+.wrapper-library .wrapper-library-col1 .custom-search-form {
+    float: right;
+}
+
+.wrapper-library .lib-lastupdate-container {
+    margin-right: 8px;
+    margin-top: 3px;
 }
 
 
@@ -888,6 +929,59 @@ if it's not present, don't show loader */
     .col-md-7 {
         padding-left: 0px;
         padding-right: 0px;
+    }
+    .wrapper-folder-title .title_tool,
+    .page-wrapper-container .list-toolbar {
+        display: flex;
+        width: 100%;
+    }
+    .wrapper-folder-title .custom-search-form,
+    .wrapper-folder-list .custom-search-form {
+        width: auto;
+        float: none;
+    }
+    .wrapper-folder-title .title_tool button,
+    .wrapper-folder-list button {
+        float: none;
+    }
+    .wrapper-folder-list .custom-search-form:after,
+    .wrapper-folder-list .folder_name:after {
+        width: 100%;
+        display: block;
+        clear: both;
+    }
+    .title_tool:after {
+        display: none;
+    }
+    .wrapper-library .folder_name:after {
+        width: 100%;
+        display: block;
+        clear: both;
+    }
+    .wrapper-library .folder_name {
+        width: 100% !important;
+        overflow: hidden;
+        margin-right: 0;
+    }
+    .wrapper-library .wrapper-library-col1 {
+        display: flex;
+        width: 100%;
+    }
+    .wrapper-library .wrapper-library-col1 .custom-search-form {
+        width: 140px !important;
+        float: none;
+    }
+    .wrapper-library .wrapper-library-col2 {
+        display: flex;
+        width: 100%;
+    }
+    .wrapper-library ul {
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+    }
+    .wrapper-library button {
+        padding: 4px 7px;
     }
 }
 
@@ -981,7 +1075,8 @@ if it's not present, don't show loader */
 }
 
 #btnStoryRefresher {
-    width: 25px;
+    width: 30px;
+    height: 30px !important;
     margin-top: -1px;
     font-size: 13px;
     border-radius: 50%;
@@ -994,6 +1089,7 @@ if it's not present, don't show loader */
     float: left;
     height: auto;
     line-height: 23px;
+    min-width: 30px;
 }
 
 #btnStoryRefresher:hover {

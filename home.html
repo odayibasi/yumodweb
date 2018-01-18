@@ -18,17 +18,17 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/sb-admin-2.css">
     <link rel="stylesheet" type="text/css" href="css/yumod.css?v0040" />
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111668366-1"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'UA-111668366-1');
-    </script>
+    window.dataLayer = window.dataLayer || [];
 
-    
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-111668366-1');
+    </script>
 </head>
 
 <body class="yumod add_account">
@@ -50,9 +50,9 @@
                                 <input type="text" id="txtMediumAccount">
                                 <button id="btnCreateStoryLib" type="button">Create Story Library</button>
                             </div>
-                            <div class=user-profile>
-                                <div>Email:<span id="infoProfileEmail"></span></div>
-                                <div>Account Type:<span id="infoProfileAccountType"></span></div>
+                            <div class="user-profile">
+                                <div>Email:<span id="infoProfileEmail">UserEmail</span></div>
+                                <div>Account Type:<span id="infoProfileAccountType">UserAccountType</span></div>
                             </div>
                         </div>
                     </div>

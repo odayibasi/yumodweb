@@ -557,6 +557,8 @@ function callCreateStoryLib() {
 
 function callSaveFolderModel() {
 
+    //Set Medium Account Name..
+    fModel.medium_accountname=storyModel.medium_accountname;
 
     var url = "https://api.yumod.com/api/foldermodel";
     $.ajax({
@@ -580,6 +582,10 @@ function callSaveFolderModel() {
 
 
 function callShareFolderModel() {
+
+
+    //Set Medium Account Name..
+    fModel.medium_accountname=storyModel.medium_accountname;
 
     var url = "https://api.yumod.com/api/dashboard";
     $.ajax({

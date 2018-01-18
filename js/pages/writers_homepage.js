@@ -52,6 +52,7 @@ function callGetDashboardData(userId) {
         success: function(data) {
             if (data != undefined) {
                 folderModel = data;
+                $("#txtWriter").text(folderModel.medium_accountname+"'s homepage")
                 $(".se-pre-con").fadeOut("slow");
                 renderStories();
             }

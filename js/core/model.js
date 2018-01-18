@@ -21,6 +21,7 @@ fModelFactory.newModel = function(config) {
 
     var tempValueMapForCloning = {};
     var fModel = {};
+    fModel.medium_accountname = "";
     fModel.folders = new Array();
     fModel.storyMap = {};
 
@@ -248,7 +249,7 @@ fModelFactory.newModel = function(config) {
     =================================================================*/
 
     fModel.toJSON = function() {
-        var obj = { version: "0.0.4", folders: fModel.folders, versions: fModel.versions };
+        var obj = { medium_accountname: fModel.medium_accountname, version: "0.0.4", folders: fModel.folders, versions: fModel.versions };
         return JSON.stringify(obj);
 
     }
@@ -256,6 +257,7 @@ fModelFactory.newModel = function(config) {
     fModel.fromJSON = function(modelObj) {
         fModel.folders = modelObj.folders;
         fModel.version = modelObj.version;
+        fModel.medium_accountname = modelObj.medium_accountname;
 
         //Folders
         for (var i = 0; i < fModel.folders.length; i++) {
