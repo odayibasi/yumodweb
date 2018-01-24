@@ -117,7 +117,9 @@ $(document).ready(function() {
         e.preventDefault();
         $("#txtFolderName2").val("");
         $("#containerUpdateFolderTemplate").prepend($("#containerUpdateFolder"));
-        updatedFolderData.obj.html(updatedFolderData.html);
+        if (updatedFolderData.obj !== undefined) {
+            updatedFolderData.obj.html(updatedFolderData.html);
+        }
         updatedFolderData = {};
     });
 
@@ -547,7 +549,7 @@ function callCreateStoryLib() {
             }
         },
         error: function(textStatus, errorThrown) {
-            handleErrors(textStatus, errorThrown);
+            handleErrors(textStatus, errorThrown, "callCreateStoryLib");
         }
     });
 }
@@ -558,7 +560,7 @@ function callCreateStoryLib() {
 function callSaveFolderModel() {
 
     //Set Medium Account Name..
-    fModel.medium_accountname=storyModel.medium_accountname;
+    fModel.medium_accountname = storyModel.medium_accountname;
 
     var url = "https://api.yumod.com/api/foldermodel";
     $.ajax({
@@ -575,7 +577,7 @@ function callSaveFolderModel() {
             }
         },
         error: function(textStatus, errorThrown) {
-            handleErrors(textStatus, errorThrown);
+            handleErrors(textStatus, errorThrown,"callSaveFolderModel");
         }
     });
 }
@@ -585,7 +587,7 @@ function callShareFolderModel() {
 
 
     //Set Medium Account Name..
-    fModel.medium_accountname=storyModel.medium_accountname;
+    fModel.medium_accountname = storyModel.medium_accountname;
 
     var url = "https://api.yumod.com/api/dashboard";
     $.ajax({
@@ -601,7 +603,7 @@ function callShareFolderModel() {
             }
         },
         error: function(textStatus, errorThrown) {
-            handleErrors(textStatus, errorThrown);
+            handleErrors(textStatus, errorThrown, "callShareFolderModel");
         }
     });
 }
@@ -614,6 +616,7 @@ function callShareFolderModel() {
 
 function callGetFolderModel() {
 
+    console.log("Called GetFolderModel");
     var url = "https://api.yumod.com/api/foldermodel";
     $.ajax({
         type: "GET",
@@ -621,16 +624,17 @@ function callGetFolderModel() {
         dataType: "json",
         contentType: "application/json",
         success: function(data) {
+            console.log("success GetFolderModel");
+
             if (data.result) {
                 fModel.fromJSON(data.data);
                 renderFolders(fModel)
                 $(".folderLib-menu").first().click();
-
-
             }
         },
         error: function(textStatus, errorThrown) {
-            handleErrors(textStatus, errorThrown)
+            console.log("error GetFolderModel");
+            handleErrors(textStatus, errorThrown,"callGetFolderModel")
         }
     });
 
@@ -746,9 +750,9 @@ function filterFolderLib() {
         HANDLE ERRORS
 ==============================================================================*/
 
-function handleErrors(textStatus, errorThrown) {
-    if (textStatus.status = 401) { //UnAuthorized
-        window.location = "index.html?error=Authorization Token Expired. Please Login"
+function handleErrors(textStatus, errorThrown, detail) {
+    if (textStatus.status === 401) { //UnAuthorized
+        window.location = "index.html?error=Authorization Token Expired. Please Login:" + detail
     }
     $("#warningArea").html(textStatus.responseText);
 }

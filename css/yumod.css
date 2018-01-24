@@ -539,10 +539,13 @@ svg {
     border-radius: 2px;
     -webkit-box-shadow: none;
     box-shadow: none;
+    -webkit-box-shadow: 0px 6px 12px -6px rgba(0,0,0,0.44);
+    -moz-box-shadow: 0px 6px 12px -6px rgba(0,0,0,0.44);
+    box-shadow: 0px 6px 12px -6px rgba(0,0,0,0.44);
 }
 
 .pin_page .well .panel-body {
-    padding: 3px;
+    padding: 1px;
 }
 
 .pin_page .well .panel-body .panel-body {
@@ -598,7 +601,7 @@ svg {
 
 .panel-default>.panel-heading {
     color: #333;
-    background-color: #FFFF;
+    background-color: #F8F8F8;
     border-color: #ddd;
     padding: 8px 15px 12px 28px;
 }
@@ -1107,3 +1110,20 @@ if it's not present, don't show loader */
     box-shadow: 0;
     display: inline;
 }
+
+.container.pin_page .row{border: 1px solid #EEE !important;padding:12px !important;background-color:#FFF !important;margin: 0px;margin-top: 8px;border-radius:4px;width: calc(100% - 48px);}
+
+.container.pin_page .form-control { width:40%; float:left;}
+.container.pin_page .collapseSettings{width:40%; float:left; margin-left:16px; line-height:30px;}
+.container.pin_page #share-buttons{width: 40px;clear:both;float:none;display:block;margin-top:4px;padding-top:4px;position: absolute;top: 94px;right: 7px;}
+
+.btn-group-xs>.btn, .btn-xs {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 0px;
+    border: 1px solid #DDD !important;
+    box-shadow: none !important;
+}
+
+.container.pin_page {width:100%;padding-left: 33px;box-sizing:  border-box;padding-top: 12px;}

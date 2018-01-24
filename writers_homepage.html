@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/sb-admin-2.css">
-    <link rel="stylesheet" type="text/css" href="css/yumod.css?v0036" />
+    <link rel="stylesheet" type="text/css" href="css/yumod.css?v0037" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111668366-1"></script>
     <script>
@@ -66,11 +66,11 @@
 </script>
 <script id="share-template" type="template/text">
     <!-- Buffer -->
-    <a href="https://bufferapp.com/add?url=https://simplesharebuttons.com&amp;text=Simple Share Buttons" target="_blank">
+    <a href="https://bufferapp.com/add?url={{shareURL}}&amp;text=Simple Share Buttons" target="_blank">
         <img src="https://simplesharebuttons.com/images/somacro/buffer.png" alt="Buffer" />
     </a>
     <!-- Digg -->
-    <a href="http://www.digg.com/submit?url=https://simplesharebuttons.com" target="_blank">
+    <a href="http://www.digg.com/submit?url={{shareURL}}" target="_blank">
         <img src="https://simplesharebuttons.com/images/somacro/diggit.png" alt="Digg" />
     </a>
     <!-- Email -->
@@ -128,12 +128,12 @@
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <a class="navbar-brand" href="index.html"><img src="css/images/yumod_logo.png"></a>
+            <span class="txt-writer" id="txtWriter">WRITER HOMEPAGE</span>
         </div>
     </nav>
     <div class="se-pre-con"></div>
     <!-- TEMPLATE -->
     <div class="container pin_page">
-        <h1 id="txtWriter">WRITER HOMEPAGE</h1>
         <input type="text" id="txtSearchStory" class="form-control" placeholder="Search...">
         <div class="collapseSettings">
             <label>
@@ -143,6 +143,7 @@
         <!-- I got these buttons from simplesharebuttons.com -->
         <div id="share-buttons">
         </div>
+        <div style="clear:both;width:100%;display block"></div>
         <div class="row">
             <div id="folderLib"></div>
         </div>
