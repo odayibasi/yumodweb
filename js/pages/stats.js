@@ -35,6 +35,15 @@ function callGetStats() {
         contentType: "application/json",
         success: function(data) {
             console.log("success Stats");
+            $("#userCount").text(data.data.length);
+            defineStatusText(data.data);
+            defineIndex(data.data);
+
+            var theTemplate = $("#userlib_template").html();
+            var theHtml = Mustache.to_html(theTemplate, data);
+            $("#userLib").html(theHtml);
+
+
             console.log(data);
         },
         error: function(textStatus, errorThrown) {
@@ -43,4 +52,40 @@ function callGetStats() {
         }
     });
 
+}
+
+
+function defineStatusText(data) {
+    for (var i = 0; i < data.length; i++) {
+        var item = data[i];
+        switch (item.status) {
+            case 1:
+                item.statusText = "usersettings oluşturuldu";
+                break;
+            case 3:
+                item.statusText = "usersettings + storymodel oluşturuldu";
+                break;
+            case 7:
+                item.statusText = "usersettings + storymodel + foldermodel oluşturuldu";
+                break;
+            case 11:
+                item.statusText = "usersettings + storymodel + storymodel_enrich oluşturuldu";
+                break;
+            case 15:
+                item.statusText = "usersettings + storymodel + foldermodel + storymodel_enrich oluşturuldu";
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+
+
+
+function defineIndex(data) {
+    for (var i = 0; i < data.length; i++) {
+        var item = data[i];
+        item.index = i;
+    }
 }

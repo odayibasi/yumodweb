@@ -20,17 +20,18 @@ $(document).ready(function() {
 
 
     $('#toggleFolder').change(function() {
-        var collapseFlag=$(this).prop('checked');
-        if(collapseFlag){
-            $(".panel-collapse").removeClass("in");              
-        }else{
-            $(".panel-collapse").addClass("in");                          
+        var collapseFlag = $(this).prop('checked');
+        if (collapseFlag) {
+            $(".panel-collapse").removeClass("in");
+        } else {
+            $(".panel-collapse").addClass("in");
         }
     })
 
 
 
     //Insert Sharings
+    console.log("url:" + url);
     var shareData = { shareURL: url }
     var theTemplate = $("#share-template").html();
     var theHtml = Mustache.to_html(theTemplate, shareData);
@@ -52,7 +53,7 @@ function callGetDashboardData(userId) {
         success: function(data) {
             if (data != undefined) {
                 folderModel = data;
-                $("#txtWriter").text(folderModel.medium_accountname+"'s homepage")
+                $("#txtWriter").text(folderModel.medium_accountname + "'s homepage")
                 $(".se-pre-con").fadeOut("slow");
                 renderStories();
             }
